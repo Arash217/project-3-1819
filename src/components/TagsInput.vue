@@ -87,10 +87,16 @@
                 this.search = '';
                 this.filter();
                 this.$refs.search.focus();
+                this.emitTags();
             },
 
             removeTag(tag) {
-                this.selectedTags = this.selectedTags.filter(selectedTag => selectedTag !== tag)
+                this.selectedTags = this.selectedTags.filter(selectedTag => selectedTag !== tag);
+                this.emitTags();
+            },
+
+            emitTags(){
+                this.$emit('input', this.selectedTags);
             }
         },
     }

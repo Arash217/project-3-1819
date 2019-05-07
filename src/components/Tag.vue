@@ -39,4 +39,8 @@
         outline: none;
         cursor: pointer;
     }
+
+    .close-button:hover {
+        filter: invert(100%) brightness(500%);
+    }
 </style>

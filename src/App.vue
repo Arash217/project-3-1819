@@ -1,15 +1,25 @@
 <template>
     <div id="app">
-        <TagsInput v-model="tags" :suggestedTags="suggestedTags" class="tags-input"/>
+        <tags-input v-model="tags" :suggestedTags="suggestedTags" class="tags-input"/>
+        <div class="array-viewer-container">
+            <span class="array-viewer-title">Suggested tags:</span>
+            <array-viewer class="array-viewer" :array="suggestedTags"/>
+        </div>
+        <div class="array-viewer-container">
+            <span class="array-viewer-title">Selected tags:</span>
+            <array-viewer class="array-viewer" :array="tags"/>
+        </div>
     </div>
 </template>
 
 <script>
     import TagsInput from './components/TagsInput.vue'
+    import ArrayViewer from './components/ArrayViewer.vue'
 
     export default {
         components: {
-            TagsInput
+            TagsInput,
+            ArrayViewer
         },
 
         data() {
@@ -42,6 +52,20 @@
     }
 
     .tags-input {
+        margin: auto;
+    }
+
+    .array-viewer-container {
+        margin-top: 50px;
+    }
+
+    .array-viewer-title {
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .array-viewer {
+        max-width: 200px;
         margin: auto;
     }
 </style>
