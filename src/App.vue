@@ -1,6 +1,13 @@
 <template>
     <div id="app">
-        <tags-input v-model="tags" :suggestedTags="suggestedTags" class="tags-input"/>
+        <div class="theme-select-container">
+            <label for="theme">Theme:</label>
+            <select name="theme" id="theme" v-model="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <tags-input v-model="tags" :suggestedTags="suggestedTags" :class="themeClass"/>
         <div class="array-viewer-container">
             <span class="array-viewer-title">Suggested tags:</span>
             <array-viewer class="array-viewer" :array="suggestedTags"/>
@@ -24,12 +31,20 @@
 
         data() {
             return {
+                theme: 'light',
                 tags: [],
                 suggestedTags: [
-                    'test',
-                    'hello',
-                    'hello2',
+                    'Black hole',
+                    'Antimatter',
+                    'Dark matter ',
+                    'Universe'
                 ]
+            }
+        },
+
+        computed: {
+            themeClass(){
+                return 'theme-' + this.theme;
             }
         }
     }
@@ -43,6 +58,10 @@
         text-align: center;
         color: #2c3e50;
         margin-top: 60px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 
     * {
@@ -51,8 +70,59 @@
         padding: 0;
     }
 
-    .tags-input {
-        margin: auto;
+    .theme-select-container {
+        margin-bottom: 50px;
+    }
+
+    .theme-select-container label {
+        margin-right: 5px;
+    }
+
+    .theme-light .tag,
+    .theme-dark .tag,
+    .theme-light .suggested-tags,
+    .theme-dark .suggested-tags,
+    .theme-light .suggested-tag,
+    .theme-dark .suggested-tag,
+    .theme-light .tag .close-button,
+    .theme-dark .tag .close-button {
+        transition: all .3s linear;
+    }
+
+    .theme-light .tag {
+        background-color: white;
+        color: #2c3e50;
+        border: 1px solid #2c3e50;
+    }
+
+    .theme-dark .tag {
+        background-color: #2c3e50;
+        border: 1px solid #2c3e50;
+        color: white;
+    }
+
+    .theme-light .suggested-tags {
+        background-color: #ebebeb;
+    }
+
+    .theme-dark .suggested-tags {
+        background-color: #2c3e50;
+    }
+
+    .theme-light .suggested-tag {
+        color: #2c3e50;
+    }
+
+    .theme-dark .suggested-tag {
+        color: white;
+    }
+
+    .theme-light .tag .close-button {
+        filter: invert(-100%);
+    }
+
+    .theme-dark .tag .close-button {
+        filter: invert(100%);
     }
 
     .array-viewer-container {

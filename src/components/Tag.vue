@@ -18,13 +18,18 @@
     li {
         padding: 5px 8px;
         margin: 2px;
-        background-color: #2c3e50;
-        color: white;
         font-size: 14px;
+        border-radius: 5px;
     }
 
     .highlight {
-        background-color: crimson;
+        background-color: crimson!important;
+        color: white!important;
+        border-color: crimson!important;
+    }
+
+    .highlight .close-button {
+        filter: invert(100%);
     }
 
     .close-button {
@@ -34,13 +39,8 @@
         background-size: 100%;
         background-color: transparent;
         border: none;
-        filter: invert(100%);
         margin-left: 5px;
         outline: none;
         cursor: pointer;
-    }
-
-    .close-button:hover {
-        filter: invert(100%) brightness(500%);
     }
 </style>

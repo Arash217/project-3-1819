@@ -2,7 +2,7 @@
     <div class="container">
         <ul class="tags">
             <tag :text="tagText" v-for="tagText in selectedTags" @input="removeTag"
-                 :toBeDeleted="tagText === tagToBeDeleted"/>
+                 :toBeDeleted="tagText === tagToBeDeleted" class="tag"/>
             <li class="input-container">
                 <input class="tag-input" type="text"
                        v-model="search"

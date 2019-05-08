@@ -1,7 +1,9 @@
 <template>
-    <ul>
+    <ul class="suggested-tags">
         <li v-for="tag in value">
-            <button @click="$emit('input', tag)">{{ tag }}</button>
+            <button @click="$emit('input', tag)" class="suggested-tag">
+                {{ tag }}
+            </button>
         </li>
     </ul>
 </template>
@@ -15,26 +17,25 @@
 </script>
 
 <style scoped>
-    ul {
+    .suggested-tags {
         list-style: none;
         background-color: #2c3e50;
         color: white;
     }
 
-    button {
+    .suggested-tag {
         width: 100%;
         height: 100%;
-        padding: 5px;
+        padding: 6px;
         background-color: transparent;
         border: none;
-        color: white;
         text-align: left;
         cursor: pointer;
         font-size: 14px;
         outline: none;
     }
 
-    button:hover, button:focus {
-        background-color: #ffdb15;
+    .suggested-tag:hover, .suggested-tag:focus {
+        background-color: #ffd931;
     }
 </style>
