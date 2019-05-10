@@ -1,7 +1,7 @@
 # project-3-1819
 
 ## Project setup
-Install NPM packages.
+Install dependencies
 ```
 npm install
 ```
