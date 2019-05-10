@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <ul class="tags">
-            <tag :text="tagText" v-for="tagText in selectedTags" @input="removeTag"
+            <tag :text="tagText" v-for="tagText in selectedTags"
+                 @input="removeTag" v-on:edit="update"
                  :toBeDeleted="tagText === tagToBeDeleted" class="tag"/>
             <li class="input-container">
                 <input class="tag-input" type="text"
@@ -15,7 +16,7 @@
                 />
             </li>
         </ul>
-        <tags-list :value="filteredTags" @input="addTag"/>
+        <tags-list :value="filteredTags" @input="addTag" v-show="filteredTags.length > 0"/>
     </div>
 </template>
 
@@ -30,10 +31,17 @@
         },
 
         props: {
+            value: {
+                type: Array,
+            },
             suggestedTags: {
                 type: Array,
                 required: false
             }
+        },
+
+        mounted() {
+            this.selectedTags = this.value;
         },
 
         data() {
@@ -42,7 +50,7 @@
                 filteredTags: [],
                 selectedTags: [],
                 tagToBeDeleted: null,
-                deleteTimer: null
+                deleteTimer: null,
             }
         },
 
@@ -77,7 +85,7 @@
             },
 
             handleInput() {
-                if (this.search.trim() !== '' && !this.selectedTags.includes(this.search)) {
+                if (this.search.trim() !== '' && !this.value.includes(this.search)) {
                     this.addTag(this.search);
                 }
             },
@@ -95,16 +103,29 @@
                 this.emitTags();
             },
 
-            emitTags(){
+            emitTags() {
                 this.$emit('input', this.selectedTags);
+            },
+
+            update({tag, newTagText}) {
+                const tagIndex = this.selectedTags.indexOf(tag);
+                const tempSelectedTags = [...this.selectedTags];
+                tempSelectedTags[tagIndex] = newTagText;
+                this.selectedTags = tempSelectedTags;
+                this.emitTags();
             }
         },
     }
 </script>
 
 <style scoped>
-    .container, ul {
-        width: 500px;
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 650px;
+        width: 100%;
+        padding: 20px;
     }
 
     .container {
@@ -119,21 +140,21 @@
 
     .tag-input {
         flex: 1 0 auto;
-        min-width: 100px;
         padding: 0;
         margin: 5px;
         border: 0;
         outline: none;
         font-size: 14px;
+        min-width: 100px;
     }
 
     .tags {
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
         line-height: 1em;
         list-style: none;
         border-bottom: 1px solid grey;
         padding: 5px;
+        width: 100%;
     }
 </style>

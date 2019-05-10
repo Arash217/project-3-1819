@@ -32,7 +32,17 @@
         data() {
             return {
                 theme: 'light',
-                tags: [],
+                tags: [
+                    'Higgsboson',
+                    'Large Hadron Collider',
+                    'European Organization for Nuclear Research',
+                    'Antihydrogen',
+                    'World Wide Web',
+                    'Accelerators',
+                    'Subatomic particles',
+                    'Geneva',
+                    'Proton'
+                ],
                 suggestedTags: [
                     'Black hole',
                     'Antimatter',
@@ -85,7 +95,10 @@
     .theme-light .suggested-tag,
     .theme-dark .suggested-tag,
     .theme-light .tag .close-button,
-    .theme-dark .tag .close-button {
+    .theme-dark .tag .close-button,
+    .theme-light .tag .undo-button,
+    .theme-dark .tag .undo-button
+    {
         transition: all .3s linear;
     }
 
@@ -103,6 +116,9 @@
 
     .theme-light .suggested-tags {
         background-color: #ebebeb;
+        border-style: solid;
+        border-color: #2c3e50;
+        border-width: 0 1px 1px 1px;
     }
 
     .theme-dark .suggested-tags {
@@ -117,11 +133,11 @@
         color: white;
     }
 
-    .theme-light .tag .close-button {
+    .theme-light .tag .close-button, .theme-light .tag .undo-button {
         filter: invert(-100%);
     }
 
-    .theme-dark .tag .close-button {
+    .theme-dark .tag .close-button, .theme-dark .tag .undo-button  {
         filter: invert(100%);
     }
 
