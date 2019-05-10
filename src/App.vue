@@ -3,8 +3,8 @@
         <div class="theme-select-container">
             <label for="theme">Theme:</label>
             <select name="theme" id="theme" v-model="theme">
-                <option value="light">Light</option>
                 <option value="dark">Dark</option>
+                <option value="light">Light</option>
             </select>
         </div>
         <tags-input v-model="tags" :suggestedTags="suggestedTags" :class="themeClass"/>
@@ -31,7 +31,7 @@
 
         data() {
             return {
-                theme: 'light',
+                theme: 'dark',
                 tags: [
                     'Higgsboson',
                     'Large Hadron Collider',
