@@ -46,6 +46,6 @@ Advantages of the proof of concept:
 - Tags can be deleted by either:
 - Clicking on the delete icon of the tag 
 - Or by entering backspace in the input field if the input field is empty. Delete by backspace is forgiving, meaning that you should enter backspace twice in order to delete a tag. This is done in order to prevent mistakes.
-- Tags can be updated by clicking on a tag to change the value. Saving the value is done by pressing the enter key. An undo button will be added in the edit mode to restore the original value.
+- Tags can be updated by clicking on a tag to change the value. Saving the value is done by entering the enter key. An undo button will be added when clicked on a tag to restore the original value.
 - Light and dark theme to lessen the strain on the user's eyes.
 
