@@ -1,7 +1,7 @@
 # project-3-1819
 
 ## Summary
-This readme contains my proof of concept for the new tag system of CERN's Jiskefet webapp.
+This readme contains my proof of concept for the tag system of CERN's Jiskefet webapp.
 ![Overview](../master/docs/new-tags.jpg)
 
 ## Project setup
