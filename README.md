@@ -42,7 +42,7 @@ The disadvantages of the current tag system are:
 ![Tags](../master/docs/new-tags.jpg)
 
 Advantages of the proof of concept:
-- All the functionalities are added to a single component to reduce the space.
+- All the functionalities are added to a single component to reduce the space
 - Tags can be deleted by either:
 - Clicking on the delete icon of the tag 
 - Or by entering backspace in the input field if the input field is empty. Delete by backspace is forgiving, meaning that you should enter backspace twice in order to delete a tag. This is done in order to prevent mistakes.
