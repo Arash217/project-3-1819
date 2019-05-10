@@ -32,9 +32,13 @@ The current tag system of the webapp:
 - A button to save an existing tag or new tag to the log
 - And finally an unordered list to display all the tags of the logs
 
-This however takes a lot of space and isn't user friendly.
-There's also no dark theme to lessen the strain on the user's eyes in the dark.
+The disadvantages of the current tag system are:
+- That it takes a lot of space
+- There's no way to delete a tag
+- There's also no way to update a tag
+- There's also no dark theme to lessen the strain on the user's eyes in the dark.
 
 ### Proof of concept
 ![Tags](../master/docs/new-tags.jpg)
+
 
