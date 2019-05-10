@@ -25,3 +25,10 @@ This section compares the differences and improvements between the current tag s
 
 ### Current tag system
 ![Overview](../master/docs/current-tags.jpg)
+
+The current tag system of the webapp:
+- Has a select field to add existing tags to the log
+- An input field to add new tags to the log
+- A button to save an existing tag or new tag to the log
+- And finally an unordered list to display all the tags of the logs
+
